@@ -9,6 +9,7 @@ namespace Democracy.GameAPI.CS1Adapter
 
         void ILoadingExtension.OnCreated(ILoading loading)
         {
+            CS1Base.Instance.Managers = loading.managers;
         }
 
         void ILoadingExtension.OnLevelLoaded(LoadMode mode)
@@ -30,7 +31,12 @@ namespace Democracy.GameAPI.CS1Adapter
         }
 
         void ILoadingExtension.OnLevelUnloading()
+
         {
+            if (boot == null)
+            {
+                boot = Bootstrapper.Instance;
+            }
             boot.OnLevelUnloaded();
         }
 

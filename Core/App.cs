@@ -15,5 +15,6 @@ namespace Democracy
             CitiesSkylines2015,
             CitiesSkylines2023
             }
+
     }
 }
