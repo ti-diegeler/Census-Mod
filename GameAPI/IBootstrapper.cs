@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Democracy.GameAPI
+﻿namespace Democracy.GameAPI
 {
 
     internal interface IBootstrapper
     {
-        void OnLevelLoaded(Boolean isRelevantLevel);
+        void Start(App.GameVer gameVersion);
+        void OnLevelLoaded(bool isRelevantLevel);
         void OnLevelUnloaded();
     }
 }

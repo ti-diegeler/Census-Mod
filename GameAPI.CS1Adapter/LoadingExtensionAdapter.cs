@@ -1,17 +1,11 @@
 ﻿using ICities;
-using Democracy.GameAPI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Democracy.Core
-using static ColossalFramework.IO.EncodedArray;
+using Democracy.GameAPI.Impl;
 
 namespace Democracy.GameAPI.CS1Adapter
 {
-    internal class BootstrapperAdapter : ILoadingExtension
+    public class LoadingExtensionAdapter : ILoadingExtension
     {
-        protected IBootstrapper boot = null;
+        IBootstrapper boot = null;
 
         void ILoadingExtension.OnCreated(ILoading loading)
         {
@@ -19,13 +13,15 @@ namespace Democracy.GameAPI.CS1Adapter
 
         void ILoadingExtension.OnLevelLoaded(LoadMode mode)
         {
-            if(boot == null)
+            if (boot == null)
             {
-                IBootstrapper boot = Bootstrapper.Instance;
+                boot = Bootstrapper.Instance;
             }
+            boot.Start(App.GameVer.CitiesSkylines2015);
             switch (mode)
             {
                 case LoadMode.NewGame:
+                    Logging.Instance.Trace("Loading Bootstrapper for new level...");
                     boot.OnLevelLoaded(true);
                     break;
                 default:
