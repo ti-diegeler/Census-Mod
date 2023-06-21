@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Democracy.Entity
 {
-    public enum PersonType
+    [Flags]
+    internal enum PersonSubscriptionOption
     {
-        All,
-        Citizen,
-        Foreigner
+        None = 0,
+        Citizen = 1,
+        PartyMember = 2
     }
 }

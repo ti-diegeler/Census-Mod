@@ -19,7 +19,7 @@ namespace Democracy.GameAPI.CS1Adapter
             cs1CitizenManager = CitizenManager.instance;
         }
 
-        HashSet<Person> IPersonImporter.GetPeople(PersonType personType)
+        HashSet<Person> IPersonImporter.GetPeople(PersonGameAPIType personType)
         {
             
             Citizen[] citizens = cs1CitizenManager.m_citizens.m_buffer;
@@ -45,7 +45,7 @@ namespace Democracy.GameAPI.CS1Adapter
             return output;
         }
 
-        protected bool IsPersonType(Citizen citizen, PersonType personType)
+        protected bool IsPersonType(Citizen citizen, PersonGameAPIType personType)
         {
             bool isCreated = citizen.m_flags.GetFlags().Contains(Citizen.Flags.Created);
             bool isDummyTraffic = citizen.m_flags.GetFlags().Contains(Citizen.Flags.DummyTraffic);
@@ -54,9 +54,9 @@ namespace Democracy.GameAPI.CS1Adapter
             bool isMovingIn = citizen.m_flags.GetFlags().Contains(Citizen.Flags.MovingIn);
             switch (personType)
             {
-                case PersonType.Citizen:
+                case PersonGameAPIType.Citizen:
                     return isCreated && !isDummyTraffic && !isTourist && !isDead && !isMovingIn;
-                case PersonType.Foreigner:
+                case PersonGameAPIType.Foreigner:
                     return isCreated && !isDead && (isDummyTraffic || isTourist);
                 default: 
                     return isCreated && !isDead;

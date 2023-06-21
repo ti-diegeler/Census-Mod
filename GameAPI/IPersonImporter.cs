@@ -9,6 +9,6 @@ namespace Democracy.GameAPI
 {
     internal interface IPersonImporter
     {
-        HashSet<Person> GetPeople(PersonType personType);
+        HashSet<Person> GetPeople(PersonGameAPIType personType);
     }
 }

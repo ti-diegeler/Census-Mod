@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Democracy.Entity
 {
-    public struct Person
+    public enum PersonGameAPIType
     {
-        public uint id;
-        public PersonGameAPIType type;
+        All,
+        Citizen,
+        Foreigner
     }
 }

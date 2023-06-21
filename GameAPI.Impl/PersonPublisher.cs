@@ -1,4 +1,5 @@
-﻿using Democracy.GameAPI.CS1Adapter;
+﻿using Democracy.Entity;
+using Democracy.GameAPI.CS1Adapter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Democracy.GameAPI.Impl
 {
-    internal class PersonHandler
+    internal class PersonPublisher : Publisher<Person, PersonSubscriptionOption>
     {
-        protected static PersonHandler instance;
+        protected static PersonPublisher instance;
         protected IPersonImporter gameImporter;
 
-        private PersonHandler() 
+        private PersonPublisher() 
         {
             gameImporter = setupGameImporter();
         }
@@ -30,16 +31,16 @@ namespace Democracy.GameAPI.Impl
 
         public void handle()
         {
-            Logging.Instance.Trace("People count: " + gameImporter.GetPeople(Entity.PersonType.Citizen).Count);
+            Update(gameImporter.GetPeople(PersonGameAPIType.Citizen), PersonSubscriptionOption.Citizen);
         }
 
-        public static PersonHandler Instance
+        public static PersonPublisher Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new PersonHandler();
+                    instance = new PersonPublisher();
                 }
                 return instance;
             }

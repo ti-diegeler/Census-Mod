@@ -6,28 +6,29 @@ using static RenderManager;
 
 namespace Democracy.GameAPI.Impl
 {
-    internal class Bootstrapper : IBootstrapper
+    internal class GameBootstrapper : IGameBootstrapper
     {
-        protected static Bootstrapper instance;
+        protected static GameBootstrapper instance;
 
-        void IBootstrapper.Start(App.GameVer gameVersion)
+        void IGameBootstrapper.Start(App.GameVer gameVersion)
         {
             App.gameVer = gameVersion;
+            App.Init();
         }
 
-        private Bootstrapper() { }
-        public static Bootstrapper Instance {
+        private GameBootstrapper() { }
+        public static GameBootstrapper Instance {
             get
             {
                 if (instance == null)
                 {
-                    instance = new Bootstrapper();
+                    instance = new GameBootstrapper();
                 }
                 return instance;
             }
         }
 
-        void IBootstrapper.OnLevelLoaded(bool isRelevantLevel)
+        void IGameBootstrapper.OnLevelLoaded(bool isRelevantLevel)
         {
             if (isRelevantLevel)
             {
@@ -38,7 +39,7 @@ namespace Democracy.GameAPI.Impl
             }
         }
 
-        void IBootstrapper.OnLevelUnloaded() { }
+        void IGameBootstrapper.OnLevelUnloaded() { }
 
 
     }

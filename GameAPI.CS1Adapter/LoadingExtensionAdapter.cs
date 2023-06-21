@@ -5,7 +5,7 @@ namespace Democracy.GameAPI.CS1Adapter
 {
     public class LoadingExtensionAdapter : ILoadingExtension
     {
-        IBootstrapper boot = null;
+        IGameBootstrapper boot = null;
 
         void ILoadingExtension.OnCreated(ILoading loading)
         {
@@ -16,7 +16,7 @@ namespace Democracy.GameAPI.CS1Adapter
         {
             if (boot == null)
             {
-                boot = Bootstrapper.Instance;
+                boot = GameBootstrapper.Instance;
             }
             boot.Start(App.GameVer.CitiesSkylines2015);
             switch (mode)
@@ -35,7 +35,7 @@ namespace Democracy.GameAPI.CS1Adapter
         {
             if (boot == null)
             {
-                boot = Bootstrapper.Instance;
+                boot = GameBootstrapper.Instance;
             }
             boot.OnLevelUnloaded();
         }

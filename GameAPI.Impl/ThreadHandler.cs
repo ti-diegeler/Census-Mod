@@ -26,7 +26,7 @@ namespace Democracy.GameAPI.Impl
 
         void IThreadHandler.OnRelevantTick()
         {
-            PersonHandler.Instance.handle();
+            PersonPublisher.Instance.handle();
         }
     }
 }

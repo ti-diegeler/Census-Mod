@@ -53,7 +53,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\App.cs" />
-    <Compile Include="Entity\PersonType.cs" />
+    <Compile Include="Entity\PersonSubscriptionOption.cs" />
+    <Compile Include="GameAPI\PersonGameAPIType.cs" />
     <Compile Include="Entity\Person.cs" />
     <Compile Include="GameAPI.CS1Adapter\CS1Base.cs" />
     <Compile Include="GameAPI.CS1Adapter\LoadingExtensionAdapter.cs" />
@@ -61,16 +62,18 @@
     <Compile Include="GameAPI.CS1Adapter\ThreadingAdapter.cs" />
     <Compile Include="GameAPI.CS1Adapter\UserModAdapter.cs" />
     <Compile Include="GameAPI.CS1Adapter\LoggingAdapter.cs" />
-    <Compile Include="GameAPI.Impl\Bootstrapper.cs" />
+    <Compile Include="GameAPI.Impl\GameBootstrapper.cs" />
     <Compile Include="GameAPI.Impl\Description.cs" />
     <Compile Include="GameAPI.Impl\Logging.cs" />
-    <Compile Include="GameAPI.Impl\PersonHandler.cs" />
+    <Compile Include="GameAPI.Impl\PersonPublisher.cs" />
     <Compile Include="GameAPI.Impl\ThreadHandler.cs" />
-    <Compile Include="GameAPI\IBootstrapper.cs" />
+    <Compile Include="GameAPI\IGameBootstrapper.cs" />
     <Compile Include="GameAPI\IPersonImporter.cs" />
     <Compile Include="GameAPI\IDescription.cs" />
     <Compile Include="GameAPI\ILogging.cs" />
+    <Compile Include="Core\Subscription\Publisher.cs" />
     <Compile Include="GameAPI\IThreadHandler.cs" />
+    <Compile Include="Mod\PersonRecallerApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
