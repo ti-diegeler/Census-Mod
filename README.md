@@ -1,1 +1,1 @@
-# Politics
+This is a private modding project for the Unity-reliant game [Cities: Skylines](https://store.steampowered.com/app/255710/Cities_Skylines/). It is intended to display proprietary demography data of CitizenUnits as a part of its internal UI. 
